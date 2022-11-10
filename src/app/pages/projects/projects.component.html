@@ -1,0 +1,25 @@
+<div class="projects">
+  <aside>
+    <div
+      class="project-info"
+      *ngFor="let item of projects; trackBy: trackByFn"
+      (click)="select(item)"
+      [routerLink]="'/projects/' + item.id"
+    >
+      <p class="project-info__date">
+        {{ item.startDate | date: "longDate" }} -
+        {{ item.endDate | date: "longDate" }}
+      </p>
+      <p class="project-info__subject">
+        {{ item.subject }}
+      </p>
+      <p class="project-info__created">
+        {{ item.createdBy }}
+      </p>
+    </div>
+  </aside>
+  <app-project-details
+    [activeProject]="activeProject"
+    (changed)="onChanged($event)"
+  ></app-project-details>
+</div>

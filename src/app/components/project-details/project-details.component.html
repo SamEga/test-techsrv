@@ -1,0 +1,55 @@
+<ng-container [formGroup]="form">
+  <div class="project-details" *ngIf="activeProject as project; else loader">
+    <div class="row">
+      <input
+        class="ms-bold center"
+        type="text"
+        formControlName="subject"
+        [value]="project.subject"
+      />
+    </div>
+    <div class="row">
+      <div class="form-item">
+        <label for="">Дата начала</label>
+        <input
+          type="text"
+          formControlName="startDate"
+          [value]="project.startDate"
+        />
+      </div>
+
+      <div class="form-item">
+        <label for="">Дата окончания</label>
+        <input
+          type="text"
+          formControlName="endDate"
+          [value]="project.endDate"
+        />
+      </div>
+
+      <div class="form-item">
+        <label for="">Автор</label>
+        <input
+          type="text"
+          formControlName="createdBy"
+          [value]="project.createdBy"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-item">
+        <label for="">Описание</label>
+        <input
+          type="text"
+          formControlName="description"
+          [value]="project.description"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <button class="btn__base" (click)="change()">Изменить</button>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #loader>loader</ng-template>
